@@ -21,11 +21,19 @@ Minimum = 3
 
 using namespace std;
 int main(){
-    int arr[]={12,3,45,7,19,8};
-    int n=6;
+    //Update the array to take user input
+    cout<<"How many numbers are you comparing?: "<<endl;
+    int n;
+    cin>>n;
+    int arr[n];
+    cout<<"Enter " << n<<" values to the array"<<endl;
+    for(int i =0;i<n;i++){
+        cout<<"Enter the value to the array: ";
+        cin>>arr[i];
+    }
     int maximum = arr[0];
     int minimum = arr[0];
-    for(int i =1;i<5;i++){
+    for(int i =1;i<n;i++){
         if(arr[i]>maximum){
             maximum = arr[i];
         }
