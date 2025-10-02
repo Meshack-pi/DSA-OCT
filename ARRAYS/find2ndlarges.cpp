@@ -31,24 +31,25 @@ No second largest element
 #include <iostream>
 using namespace std;
 void second_largest(vector<int> &arr,int n){
-    int max=arr[0];
-    int max_position;
-    int second_max = arr[0];
-    for(int i =1;i<n;i++){
+    if(n<2){
+        cout<<"No second largest element\n";
+        return;
+    }
+    int max=INT_MIN,second_max = INT_MIN;
+
+    for(int i =0;i<n;i++){
         if(arr[i]>max){
+            second_max = max;
             max = arr[i];
-            max_position = i;
+        }else if(arr[i]>second_max && arr[i] !=max){
+            second_max=arr[i];
         }
     }
-    for(int i =1;i<n;i++){
-        if(arr[i]!=max && arr[i]>second_max){
-            second_max = arr[i];
-        }
-    }
-    if(arr[max_position]==second_max){
-        cout<<"No second largest element"<<endl;
+    if(second_max==INT_MIN){
+        cout<<"No second largest element\n";
     }else{
-        cout<<"Largest number is: "<<max<<" second largest is: "<<second_max<<endl;   
+        cout<<"Largest element is: "<<max<<endl;
+        cout<<"Second largest element is: "<<second_max<<endl;
     }
 }
 
