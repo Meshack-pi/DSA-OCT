@@ -22,8 +22,8 @@ int main() {
     k=k%n; //handling cases where k is greater than n
     //start by reversing whole array
     reverseArray(arr,0,n-1);
-    reverseArray(arr,0,k-1);
-    reverseArray(arr,k,n-1);
+    reverseArray(arr,0,k-1); //reverse the array to k-1 first part
+    reverseArray(arr,k,n-1); //reverse the rest of the part
     for(auto num:arr){
         cout<<num<<",";
     }
