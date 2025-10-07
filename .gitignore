@@ -1045,3 +1045,14 @@ dkms.conf
 *.dis
 /.vscode
 #name
+# C++ object files and executables
+*.o
+*.out
+*.exe
+
+# macOS debug and system files
+*.dSYM/
+.DS_Store
+
+# If you name your executables explicitly (e.g. 'program')
+program
