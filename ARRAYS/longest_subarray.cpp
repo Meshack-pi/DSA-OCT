@@ -1,18 +1,21 @@
 #include <iostream>
 using namespace std;
 int longestSubarray(vector<int> &arr,int n, int S){
-    int currentSum =0;
-    int max_length = INT_MIN;
+    int currentSum = 0;
+    int max_length = 0;
     int start = 0;
-    for(int end =0;end<n;end++){
-        currentSum +=arr[end];
-        while(currentSum<=S){
-            max_length = max(max_length,end-start+1);
-            currentSum -=arr[start];
+
+    for(int end = 0; end < n; end++){
+        currentSum += arr[end];
+        // Shrink window while sum exceeds S
+        while(currentSum > S && start <= end){
+            currentSum -= arr[start];
             start++;
         }
+        max_length = max(max_length, end - start + 1);
     }
-    return (max_length==INT_MIN)?0:max_length;
+
+    return max_length;
 }
 
 int main() {
